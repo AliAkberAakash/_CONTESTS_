@@ -4,10 +4,11 @@
 
 int main()
 {
-    int n,a[1000],i,l,m,o,j;
-    char* s = (char*) malloc(1000);
-    char* t = (char*) malloc(1000);
+    int n,a[1000],i,k,o,j,d;
+    char c;
+
     char** str = (char**) malloc(sizeof(char*)*100);
+
     for(i=0; i<100; i++)
         {
             str[i]=(char*) malloc(1000);
@@ -18,53 +19,34 @@ int main()
     getchar();
     getchar();
 
-    for(j=0; j<n; j++)
+    while(n--)
     {
-        fgets(s,500,stdin);
-
-        l=strlen(s);
-        m=0;
-        o=0;
-
-        for(i=0; i<=l; i++)
+        i=0;
+        do
         {
-            if((s[i]==' ')||(s[i]=='\0'))
-            {
-                t[m]='\0';
-                a[o++]=atoi(t);
-                m=0;
-            }
-            else
-                t[m++]=s[i];
+            scanf("%d%c", &d,&c);
+            a[i++]=d;
+        }
+        while(c!='\n');
+
+        for(o=0; o<i; o++)
+        {
+            scanf("%s", str[a[o]]);
+            getchar();
         }
 
-        fgets(s,500,stdin);
 
-        l=strlen(s);
-        m=0;
-        o=0;
 
-        for(i=0; i<=l; i++)
+        for(k=1; k<=o; k++)
+            printf("%s\n", str[k]);
+
+        if(n)
         {
-            if((s[i]==' ')||(s[i]=='\0'))
-            {
-                t[m]='\0';
-                strcpy(str[o++],t);
-                m=0;
-            }
-            else
-                t[m++]=s[i];
-        }
-
-        for(i=0; i<o; i++)
-            printf("%s\n", str[i]);
-
-        if(j!=n)
             printf("\n");
-        getchar();
+            getchar();
+        }
     }
 
-    free(s);
     free(str);
 
     return 0;

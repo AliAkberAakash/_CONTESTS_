@@ -10,34 +10,27 @@ struct permutation
 {
     int index;
     string str;
-}per[1000];
+}per[10000];
 
 
 int main()
 {
-    int n,in,i,j,k;
-    char* s = (char*) malloc(1000);
-
+    int n,in,i,j,k, num;
+    char ch;
     scanf("%d", &n);
+    getchar();
     getchar();
 
     while(n--)
     {
-        getchar();
-
         i=0;
 
-        fgets(s,1000,stdin);
-        stringstream ss(s);
-        while(ss>>s)
-            per[i++].index=atoi(s);
-
-                i=0;
-
-        fgets(s,1000,stdin);
-        stringstream ss2(s);
-        while(ss2>>s)
-            per[i++].str=s;
+        do{
+            scanf(" %d%c", &num, &ch);
+            per[i++].index=num;
+        }while(ch!='\n');
+        for(j=0; j<i; j++)
+            cin >> per[j].str;
 
         for(j=0; j<i; j++)
         {
@@ -57,11 +50,10 @@ int main()
         if(n)
         {
             printf("\n");
+            getchar();
         }
 
     }
-
-    free(s);
 
     return 0;
 }
