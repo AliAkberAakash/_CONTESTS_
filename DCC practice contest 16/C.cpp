@@ -13,7 +13,7 @@ int color[202];
 int cunt[202];
 
 vector <int> edges[200];
-queue <int> q;
+queue  <int> q;
 
 int main()
 {

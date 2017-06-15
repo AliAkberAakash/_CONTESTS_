@@ -1,7 +1,7 @@
 #include<cstdio>
 #include<cmath>
 #define SIZE 1000000
-#define sizE 600000
+#define sizE 1000000
 
 int prime[sizE], nprime=0;
 int mark[SIZE];
@@ -36,17 +36,19 @@ void sieve()
 
 int main()
 {
+    int n;
+
     sieve();
 
-    int q,n;
-
-    scanf("%d", &q);
-
-    while(q--)
+    while(scanf("%d", &n)==1)
     {
-        scanf("%d", &n);
-        printf("%d\n", prime[n-1]);
+        int i,k;
+        i=k=0;
 
+        while(prime[i++]<=n)
+            k++;
+
+        printf("%d\n", k);
     }
 
     return 0;
